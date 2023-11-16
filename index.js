@@ -29,9 +29,16 @@ server.get('/healthcheck', (req, res)=>{
 
 
 server.post('/getResponse', (req, res)=>{
+    var docId = req.body.sourceId;
+
+    if(docId == undefined)
+    {
+        docId = 'cha_rJj86HsKcVbVCBS91punQ';
+    }
+
     var payload = {
         referenceSources: true,
-        sourceId: "cha_rJj86HsKcVbVCBS91punQ",
+        sourceId: docId,
         messages: [
           {
             role: "user",
